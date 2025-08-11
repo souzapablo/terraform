@@ -7,18 +7,18 @@ terraform {
   }
 }
 
-resource "digitalocean_droplet" "vm_aula" {
+resource "digitalocean_droplet" "vm_basic" {
   image    = "ubuntu-22-04-x64"
   name     = var.droplet_name
   region   = var.droplet_region
   size     = var.droplet_size
-  ssh_keys = [data.digitalocean_ssh_key.ssh_key.id]
+  ssh_keys = [data.digitalocean_ssh_key.ssh_key.id, data.digitalocean_ssh_key.ssh_key_2.id]
 }
 
-resource "digitalocean_firewall" "firewall_aula" {
-  name = "firewall-aula"
+resource "digitalocean_firewall" "firewall_basic" {
+  name = "firewall-basic"
 
-  droplet_ids = [digitalocean_droplet.vm_aula.id]
+  droplet_ids = [digitalocean_droplet.vm_basic.id]
 
   inbound_rule {
     protocol         = "tcp"

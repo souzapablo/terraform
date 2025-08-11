@@ -1,5 +1,5 @@
 variable "droplet_name" {
-  default = "vm-aula"
+  default = "vm-basic"
 }
 
 variable "droplet_region" {
