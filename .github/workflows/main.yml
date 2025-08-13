@@ -12,6 +12,6 @@ jobs:
   deploy:
     uses: souzapablo/github-actions/.github/workflows/terraform.yml@main
     with:
-      environment: production
+      environment: Production
     secrets:
       TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
