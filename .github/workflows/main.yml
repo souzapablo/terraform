@@ -8,12 +8,10 @@ on:
 
 permissions:
   contents: read
-
+  
 jobs:
   deploy:
     uses: souzapablo/github-actions/.github/workflows/terraform.yml@main
     with:
       environment: Production
-    secrets:
-      DO_TOKEN: ${{ secrets.DO_TOKEN }}
- 
+      DO_TOKEN: ${{ secrets.DO_TOKEN }} 
