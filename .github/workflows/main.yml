@@ -11,7 +11,7 @@ permissions:
   
 jobs:
   deploy:
-    uses: souzapablo/github-actions/.github/workflows/terraform.yml@main
+    uses: souzapablo/github-actions/.github/workflows/terraform-plan.yml@main
     secrets:
       DO_TOKEN: ${{ secrets.DO_TOKEN }}
  
