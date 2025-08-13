@@ -1,3 +1,4 @@
+
 name: Deploy with Terraform
 
 on:
@@ -7,8 +8,11 @@ on:
 
 jobs:
   deploy:
-    uses: souzapablo/github-actions/.github/workflows/terraform.yml@v1.0.0
+    uses: souzapablo/github-actions/.github/workflows/terraform.yml@main
     with:
       environment: production
     secrets:
       TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
+    # Add permissions if needed for private repo access
+    permissions:
+      contents: read
