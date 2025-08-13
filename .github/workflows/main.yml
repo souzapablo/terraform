@@ -5,6 +5,9 @@ on:
     branches: [ "main" ]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   deploy:
     uses: souzapablo/github-actions/.github/workflows/terraform.yml@main
