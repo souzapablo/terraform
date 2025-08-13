@@ -14,5 +14,5 @@ jobs:
     uses: souzapablo/github-actions/.github/workflows/terraform.yml@main
     with:
       environment: Production
-      DO_TOKEN: ${{ secrets.DO_TOKEN }} 
-    secrets: inherit
+    secrets:
+      DO_TOKEN: ${{ secrets.DO_TOKEN }}
