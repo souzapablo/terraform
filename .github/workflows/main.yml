@@ -1,3 +1,4 @@
+
 name: Deploy with Terraform
 
 on:
@@ -12,6 +13,6 @@ jobs:
   deploy:
     uses: souzapablo/github-actions/.github/workflows/terraform.yml@main
     with:
-      environment: Production
+      environment: production
     secrets:
-      TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
+      DO_TOKEN: ${{ secrets.DO_TOKEN }}
