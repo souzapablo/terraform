@@ -12,4 +12,12 @@ jobs:
     uses: souzapablo/github-actions/.github/workflows/terraform-plan.yml@main
     secrets:
       DO_TOKEN: ${{ secrets.DO_TOKEN }}
+
+  apply:
+    environment: production
+    uses: souzapablo/github-actions/.github/workflows/terraform-apply.yml@main
+    with:
+      plan_run_id: ${{ github.event.inputs.plan_run_id }}
+    secrets:
+      DO_TOKEN: ${{ secrets.DO_TOKEN }
  
