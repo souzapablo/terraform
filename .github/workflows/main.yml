@@ -13,7 +13,7 @@ jobs:
   deploy:
     uses: souzapablo/github-actions/.github/workflows/terraform.yml@main
     with:
-      environment: production
+      environment: Production
     secrets:
       DO_TOKEN: ${{ secrets.DO_TOKEN }}
  
