@@ -5,6 +5,7 @@ on:
 
 jobs:
   terraform:
+    name: 'Infrastructure Deployment'
     uses: souzapablo/github-actions/.github/workflows/terraform.yml@main
     secrets:
       DO_TOKEN: ${{ secrets.DO_TOKEN }}
