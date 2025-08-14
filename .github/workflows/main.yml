@@ -12,8 +12,7 @@ jobs:
       DO_TOKEN: ${{ secrets.DO_TOKEN }}
   
   apply:
-    if: ${{ needs.plan.outputs.has-changes == 'true' }}
+    if: needs.plan.outputs.has-changes == 'true'
     needs: plan
-    runs-on: ubuntu-latest
-    environment: production
     uses: souzapablo/github-actions/.github/workflows/terraform-apply.yml@main
+    environment: 'production'
