@@ -16,7 +16,8 @@ jobs:
   apply:
     if: needs.plan.outputs.has-changes == 'true'
     needs: plan
-    environment: production
     uses: souzapablo/github-actions/.github/workflows/terraform-apply.yml@main
     secrets:
       DO_TOKEN: ${{ secrets.DO_TOKEN }}
+    with:
+      plan_run_id: ${{ needs.plan.outputs.plan-run-id }}
