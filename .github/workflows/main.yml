@@ -8,16 +8,15 @@ permissions:
   pull-requests: write
   
 jobs:
-  deploy:
+  plan:
     uses: souzapablo/github-actions/.github/workflows/terraform-plan.yml@main
     secrets:
       DO_TOKEN: ${{ secrets.DO_TOKEN }}
 
   apply:
+    if: needs.deploy.outputs.has-changes == 'true'
+    needs: deploy
     environment: production
     uses: souzapablo/github-actions/.github/workflows/terraform-apply.yml@main
-    with:
-      plan_run_id: ${{ github.event.inputs.plan_run_id }}
     secrets:
-      DO_TOKEN: ${{ secrets.DO_TOKEN }
- 
+      DO_TOKEN: ${{ secrets.DO_TOKEN }}
