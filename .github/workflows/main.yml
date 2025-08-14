@@ -15,17 +15,22 @@ jobs:
     needs: plan
     runs-on: ubuntu-latest
     steps:
-      - name: Debug outputs
+      - name: Debug all outputs
         run: |
-          echo "has-changes output: '${{ needs.plan.outputs.has-changes }}'"
-          echo "plan-run-id output: '${{ needs.plan.outputs.plan-run-id }}'"
-          echo "has-changes type: $(echo '${{ needs.plan.outputs.has-changes }}' | wc -c)"
+          echo "=== Debugging Job Outputs ==="
+          echo "has-changes: '${{ needs.plan.outputs.has-changes }}'"
+          echo "plan-run-id: '${{ needs.plan.outputs.plan-run-id }}'"
+          echo "=== Raw JSON ==="
+          echo '${{ toJSON(needs.plan.outputs) }}'
+          echo "=== Conditions ==="
+          echo "Condition result: ${{ needs.plan.outputs.has-changes == 'true' }}"
   
   apply:
-    if: needs.plan.outputs.has-changes == 'true'
+    if: ${{ needs.plan.outputs.has-changes == 'true' }}
     needs: plan
-    uses: souzapablo/github-actions/.github/workflows/terraform-apply.yml@main
-    secrets:
-      DO_TOKEN: ${{ secrets.DO_TOKEN }}
-    with:
-      plan_run_id: ${{ needs.plan.outputs.plan-run-id }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Apply would run here
+        run: |
+          echo "Apply job would run with plan-run-id: ${{ needs.plan.outputs.plan-run-id }}"
+          echo "This means the condition worked!"
