@@ -2,14 +2,14 @@ name: Deploy Infrastructure
 on:
   pull_request:
     branches: [main]
-    permissions:
-      contents: read
-      pull-requests: write
 
 jobs:
   terraform:
     uses: souzapablo/github-actions/.github/workflows/terraform.yml@main
-    secrets:
-      DO_TOKEN: ${{ secrets.DO_TOKEN }}
     with:
       working-directory: "./infrastructure"
+    secrets:
+      DO_TOKEN: ${{ secrets.DO_TOKEN }}
+    permissions:  # explicitly pass allowed permissions
+      contents: read
+      pull-requests: write
