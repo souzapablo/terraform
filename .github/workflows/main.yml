@@ -29,6 +29,7 @@ jobs:
     if: ${{ needs.plan.outputs.has-changes == 'true' }}
     needs: plan
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Apply would run here
         run: |
