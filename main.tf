@@ -7,6 +7,7 @@ terraform {
   }
 }
 
+
 resource "digitalocean_droplet" "vm_basic" {
   image    = "ubuntu-22-04-x64"
   name     = "${var.droplet_name}-${count.index}"
