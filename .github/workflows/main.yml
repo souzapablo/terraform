@@ -17,8 +17,8 @@ jobs:
     steps:
       - name: Debug outputs
         run: |
-          echo "has-changes output: '${{ needs.plan.outputs.has-changes }}'"
-          echo "plan-run-id output: '${{ needs.plan.outputs.plan-run-id }}'"
+          echo "has-changes output: '${{ terraform.plan.outputs.has-changes }}'"
+          echo "plan-run-id output: '${{ terraform.plan.outputs.plan-run-id }}'"
           echo "has-changes type: $(echo '${{ needs.plan.outputs.has-changes }}' | wc -c)"
   
   apply:
@@ -28,4 +28,4 @@ jobs:
     secrets:
       DO_TOKEN: ${{ secrets.DO_TOKEN }}
     with:
-      plan_run_id: ${{ needs.plan.outputs.plan-run-id }}
+      plan_run_id: ${{ terraform.plan.outputs.plan-run-id }}
