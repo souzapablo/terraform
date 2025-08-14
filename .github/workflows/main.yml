@@ -9,4 +9,4 @@ jobs:
     secrets:
       DO_TOKEN: ${{ secrets.DO_TOKEN }}
     with:
-      working-directory: "./infrastructure"
+      working-directory: "./infrastructure" 
