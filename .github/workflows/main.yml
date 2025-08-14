@@ -17,5 +17,3 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     uses: souzapablo/github-actions/.github/workflows/terraform-apply.yml@main
-    secrets:
-      DO_TOKEN: ${{ secrets.DO_TOKEN }}
