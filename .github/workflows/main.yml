@@ -15,4 +15,3 @@ jobs:
     if: needs.plan.outputs.has-changes == 'true'
     needs: plan
     uses: souzapablo/github-actions/.github/workflows/terraform-apply.yml@main
-    environment: 'production'
