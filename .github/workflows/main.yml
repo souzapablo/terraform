@@ -1,19 +1,13 @@
 name: Deploy with Terraform
 on:
   pull_request:
+
 permissions:
   contents: read
   pull-requests: write
   
 jobs:
-  plan:
-    uses: souzapablo/github-actions/.github/workflows/terraform-plan.yml@main
-    secrets:
-      DO_TOKEN: ${{ secrets.DO_TOKEN }}
-  
-  apply:
-    if: needs.plan.outputs.has-changes == 'true'
-    needs: plan
-    uses: souzapablo/github-actions/.github/workflows/terraform-apply.yml@main
+  terraform:
+    uses: souzapablo/github-actions/.github/workflows/terraform/main.yml@main
     secrets:
       DO_TOKEN: ${{ secrets.DO_TOKEN }}
