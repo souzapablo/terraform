@@ -11,27 +11,11 @@ jobs:
     secrets:
       DO_TOKEN: ${{ secrets.DO_TOKEN }}
   
-  debug:
-    needs: plan
-    runs-on: ubuntu-latest
-    steps:
-      - name: Debug all outputs
-        run: |
-          echo "=== Debugging Job Outputs ==="
-          echo "has-changes: '${{ needs.plan.outputs.has-changes }}'"
-          echo "plan-run-id: '${{ needs.plan.outputs.plan-run-id }}'"
-          echo "=== Raw JSON ==="
-          echo '${{ toJSON(needs.plan.outputs) }}'
-          echo "=== Conditions ==="
-          echo "Condition result: ${{ needs.plan.outputs.has-changes == 'true' }}"
-  
   apply:
     if: ${{ needs.plan.outputs.has-changes == 'true' }}
     needs: plan
     runs-on: ubuntu-latest
     environment: production
-    steps:
-      - name: Apply would run here
-        run: |
-          echo "Apply job would run with plan-run-id: ${{ needs.plan.outputs.plan-run-id }}"
-          echo "This means the condition worked!"
+    uses: souzapablo/github-actions/.github/workflows/terraform-apply.yml@main
+    secrets:
+      DO_TOKEN: ${{ secrets.DO_TOKEN }}
