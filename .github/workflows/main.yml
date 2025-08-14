@@ -6,8 +6,6 @@ on:
 jobs:
   terraform:
     uses: souzapablo/github-actions/.github/workflows/terraform.yml@main
-    with:
-      working-directory: "./infrastructure"
     secrets:
       DO_TOKEN: ${{ secrets.DO_TOKEN }}
     permissions:  # explicitly pass allowed permissions
