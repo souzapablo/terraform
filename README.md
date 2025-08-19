@@ -5,7 +5,7 @@ This repository is used to learn and revisit **Terraform** concepts through hand
 ### Overview
 
 Terraform is an Infrastructure as Code (IaC) tool that allows you to define and manage infrastructure using configuration files.
-
+ 
 ### Common Commands
 | Command             | Description                                                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -36,4 +36,5 @@ The Terraform language uses the following types for its values:
 
 
 Official documentation availabe [here](https://developer.hashicorp.com/terraform/language/expressions/types).
+
 
