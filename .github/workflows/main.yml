@@ -9,7 +9,7 @@ jobs:
     secrets:
       DO_TOKEN: ${{ secrets.DO_TOKEN }}
     with:
-      runners: '["ubuntu-latest", "ubuntu-24.04"]'
+      runners: '["ubuntu-latest"]'
     permissions:  # explicitly pass allowed permissions
       contents: read
       pull-requests: write
