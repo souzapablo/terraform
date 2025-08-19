@@ -7,7 +7,7 @@ jobs:
     name: 'Infrastructure Deployment'
     uses: souzapablo/github-actions/.github/workflows/terraform.yml@main
     with:
-      runners: '["ubuntu-latest", "ubuntu-22.04"]'
+      runners: '["ubuntu-latest"]'
     secrets:
       DO_TOKEN: ${{ secrets.DO_TOKEN }}
     permissions:  # explicitly pass allowed permissions
