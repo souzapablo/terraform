@@ -5,7 +5,7 @@ terraform {
       version = "~> 2.0"
     }
   }
-}
+} 
 
 resource "digitalocean_droplet" "vm_basic" {
   image    = "ubuntu-22-04-x64"
