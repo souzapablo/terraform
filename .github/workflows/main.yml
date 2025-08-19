@@ -8,8 +8,6 @@ jobs:
     uses: souzapablo/github-actions/.github/workflows/terraform.yml@main
     with:
       runners: '["ubuntu-latest", "windows-latest"]'
-    secrets:
-      DO_TOKEN: ${{ secrets.DO_TOKEN }}
     permissions:  # explicitly pass allowed permissions
       contents: read
       pull-requests: write
