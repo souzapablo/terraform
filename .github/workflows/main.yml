@@ -4,6 +4,7 @@ on:
     branches: [main]
 jobs:
   terraform:
+    environment: 'production'
     name: 'Infrastructure Deployment'
     uses: souzapablo/github-actions/.github/workflows/terraform.yml@main
     secrets:
