@@ -4,13 +4,12 @@ on:
     branches: [main]
 jobs:
   terraform:
-    environment: 'production'
     name: 'Infrastructure Deployment'
     uses: souzapablo/github-actions/.github/workflows/terraform.yml@main
-    secrets:
-      DO_TOKEN: ${{ secrets.DO_TOKEN }}
     with:
       runners: '["ubuntu-latest", "ubuntu-22.04"]'
+    secrets:
+      DO_TOKEN: ${{ secrets.DO_TOKEN }}
     permissions:  # explicitly pass allowed permissions
       contents: read
       pull-requests: write
