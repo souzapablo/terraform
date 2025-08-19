@@ -16,7 +16,7 @@ Terraform is an Infrastructure as Code (IaC) tool that allows you to define and 
 | `terraform destroy` | Destroys all infrastructure managed by the current Terraform configuration.                                      |
 
 
-### Types
+### Types 
 
 The Terraform language uses the following types for its values: 
 
@@ -36,4 +36,5 @@ The Terraform language uses the following types for its values:
 
 
 Official documentation availabe [here](https://developer.hashicorp.com/terraform/language/expressions/types).
+
 
